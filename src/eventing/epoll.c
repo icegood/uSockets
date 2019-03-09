@@ -143,7 +143,8 @@ void us_poll_stop(struct us_poll *p, struct us_loop *loop) {
 unsigned int us_internal_accept_poll_event(struct us_poll *p) {
     int fd = us_poll_fd(p);
     uint64_t buf;
-    int read_length = read(fd, &buf, 8);
+    //int read_length =
+    read(fd, &buf, 8);
     return buf;
 }
 
@@ -222,7 +223,8 @@ void us_internal_async_set(struct us_internal_async *a, void (*cb)(struct us_int
 
 void us_internal_async_wakeup(struct us_internal_async *a) {
     uint64_t one = 1;
-    int written = write(us_poll_fd((struct us_poll *) a), &one, 8);
+    //int written =
+    write(us_poll_fd((struct us_poll *) a), &one, 8);
 }
 
 #endif

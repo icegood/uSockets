@@ -98,7 +98,7 @@ struct us_new_socket_t *on_echo_socket_data(struct us_new_socket_t *s, char *dat
 }
 
 /* Socket opened handler */
-struct us_new_socket_t *on_echo_socket_open(struct us_new_socket_t *s, int is_client) {
+struct us_new_socket_t *on_echo_socket_open(struct us_new_socket_t *s, int is_client, char *ip, int ip_length) {
 	struct echo_socket *es = (struct echo_socket *) us_new_socket_ext(SSL, s);
 
 	/* Initialize the new socket's extension */

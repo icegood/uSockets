@@ -209,13 +209,13 @@ struct us_new_socket_t *on_http_socket_data(struct us_new_socket_t *s, char *dat
     return perform_random_operation(s);
 }
 
-struct us_new_socket_t *on_web_socket_open(struct us_new_socket_t *s, int is_client) {
+struct us_new_socket_t *on_web_socket_open(struct us_new_socket_t *s, int is_client, char *ip, int ip_length) {
     // fail here, this can never happen!
     printf("ERROR: on_web_socket_open called!\n");
     exit(-2);
 }
 
-struct us_new_socket_t *on_http_socket_open(struct us_new_socket_t *s, int is_client) {
+struct us_new_socket_t *on_http_socket_open(struct us_new_socket_t *s, int is_client, char *ip, int ip_length) {
     struct http_socket *hs = (struct http_socket *) us_new_socket_ext(SSL, s);
     hs->is_http = 1;
     hs->pad_invariant = pad_should_always_be;
